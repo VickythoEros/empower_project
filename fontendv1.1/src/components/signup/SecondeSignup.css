@@ -1,0 +1,22 @@
+
+
+.first{
+    display: block;
+}
+
+.second{
+    display: block;
+}
+
+.third{
+    display: block;
+}
+.titre-verif{
+    font-style: italic;
+    font-weight:lighter;
+}
+
+.input-other-structure{
+   
+    width:40em;
+}

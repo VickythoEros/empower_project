@@ -1,0 +1,43 @@
+.before-body-container{
+
+}
+
+.description-entreprise-container{
+
+    padding:2em 4em;
+}
+.description-entreprise-container h2{
+
+    color: purple;
+    font-family: 'Open Sans' ,'sans-sherif'
+  }
+
+
+.description-entreprise-container .text-description{
+
+    position: relative;
+    justify-content: center;
+    padding-top: 1%;
+  }
+
+
+.entreprise-postes{
+    background-color: #ffffffa1;
+    padding: 6em 0;
+    position: relative;
+    background-position-x: left;
+    z-index: 99;
+}
+
+
+.contact-us-entreprise{
+    margin-top: 5em;
+    background: url('../../../../assets/images/entrepriseDetails/bgContactUs.png')top center;
+    background-position: top;
+    background-size: cover;
+}
+
+.contact-us-entreprise .btn-envoie-message{
+    position: relative;
+    margin-top: 8%;
+}

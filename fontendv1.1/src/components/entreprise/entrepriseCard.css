@@ -1,0 +1,25 @@
+.panel-entreprise-card {
+  cursor: pointer;
+  margin:auto; 
+  height: 10em;
+  width:18em;
+}
+
+
+.panel-entreprise-card .img-entreprise-card{
+    height: 7em;
+    width:15em;
+   
+}
+
+
+.panel-entreprise-card .div-entreprise-card p{
+    max-width:14em;
+    font-size:1.1rem;
+    
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    
+    color: #fff;
+}

@@ -1,0 +1,30 @@
+.conference-card-container{
+    width: 23em;
+    cursor: pointer;
+    border-top: 2px solid purple;
+}
+
+.conference-card-container{
+    
+}
+
+.conference-card-container{
+    
+}
+
+.conference-card-container .conference-detail-desc{
+    height: 4.7em;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+} 
+
+
+.conference-card-container .conference-h6-theme{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

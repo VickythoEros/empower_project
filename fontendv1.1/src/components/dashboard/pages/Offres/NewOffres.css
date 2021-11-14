@@ -1,0 +1,16 @@
+.body-new-offre {
+    display: flex;
+    justify-content: center;
+}
+
+.header-new-offre{
+    padding: 2em;
+    background:rgb(2, 0, 102);
+    color:#fff;
+}
+
+.offre-container-tst{
+    background:rgb(204, 206, 211);
+}
+
+

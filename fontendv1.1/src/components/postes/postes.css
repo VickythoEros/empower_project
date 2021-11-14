@@ -1,0 +1,84 @@
+.poste-container{
+    
+    border-bottom: 3px solid purple;
+    box-shadow: 2px 3px 3px #969091,2px -3px -3px #969091;
+    background-color: aliceblue;
+    margin: auto;
+    height: 13em;
+    width:25em;
+    z-index: 999;
+}
+
+.poste-container:hover{
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+    
+}
+
+
+.poste-infos h6{
+    font-family: 'Open Sans', sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.poste-infos .title-h{
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.poste-infos .title-h h5{
+    height: 3em;
+    max-height:3em;
+    text-align: center;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin:auto;
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  line-clamp: 2;
+  box-orient:vertical;
+   
+}
+
+.poste-infos .title-h .qualifications ul{
+
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin:auto;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin:auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    line-clamp: 2;
+    box-orient:vertical;
+}
+
+.poste-infos .title-h .qualifications ul li{
+    color: green;
+}
+
+
+.poste-infos .title-h .lieu ul{
+    height: 2em;
+    max-height:2em;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin:auto;
+}
+.poste-infos .title-h .lieu ul li{
+    font-weight: bold;
+}
+
+
