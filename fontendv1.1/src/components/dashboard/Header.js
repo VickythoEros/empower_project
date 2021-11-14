@@ -205,7 +205,7 @@ export default function Header() {
                         
                     </li>
                     
-                    <li className="nav-item dropdown">
+                    {/* <li className="nav-item dropdown">
                         <Whisper placement="bottom" trigger="hover" speaker={tooltipConver}>
                         <a className="nav-link" data-toggle="dropdown">
                         
@@ -233,7 +233,7 @@ export default function Header() {
                         <i className="fas fa-expand-arrows-alt"></i>
                     </a>
                     </Whisper>
-                    </li>
+                    </li> */}
                     
                     <li className="nav-item">
                     <Whisper placement="bottom" trigger="hover" speaker={tooltipProf}>
