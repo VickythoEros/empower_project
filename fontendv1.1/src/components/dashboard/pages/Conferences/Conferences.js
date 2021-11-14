@@ -151,7 +151,6 @@ export default function Conferences({match}) {
                         <Col className="p-3" md={12} sm={12}>
                           <InputPicker  size="lg" className="float-md-right w-100" data={data} placeholder="Trier par..."/>
                         </Col>
-
               </Row>
 
             {user.admin &&
