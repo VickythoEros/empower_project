@@ -93,11 +93,11 @@ const NavbarHeader = (props) => {
               <NavLink className="navbar-items-header-a" tag={Link} to="/">Accueil</NavLink>
             </NavItem>
             <NavItem className="mx-3">
-              <NavLink className="navbar-items-header-a" tag={Link} to="/login">Evenements</NavLink>
+              <NavLink className="navbar-items-header-a" onClick={props.executeScroll} >Evenements</NavLink>
             </NavItem>
-            <NavItem className="mx-3">
+            {/* <NavItem className="mx-3">
               <NavLink className="navbar-items-header-a" tag={Link} to="/contacts">Contacts</NavLink>
-            </NavItem>
+            </NavItem> */}
 
          { isAuth ? (
             <>

@@ -1,5 +1,5 @@
 
-import React, { Suspense, lazy,useEffect,useState} from 'react';
+import React, { Suspense, lazy} from 'react';
 import { BrowserRouter as Router,Switch, Route } from "react-router-dom";
 import {Loader,Placeholder} from 'rsuite';
 import { connect } from 'react-redux'
@@ -18,10 +18,7 @@ import 'rsuite/dist/styles/rsuite-default.css';
 import 'react-jquery-plugin';
 
 
-import {useHistory} from 'react-router-dom';
-import useScript from './useScript';
 import { apiConnect } from './redux/connexion/connectAction';
-import store from './redux/store';
 import { PrivateRoute } from './services/PrivateRoute';
 
 
@@ -35,10 +32,6 @@ const Dashboard = lazy(() => import('./views/Dashboard/Dashboard'));
 
 
 
-
-const { Paragraph } = Placeholder;
-
-
 // loader component
 
 
@@ -47,12 +40,9 @@ const instance = (
 );
 
 
-
 function App(props) {
 
   AOS.init();
-
-  
 
   return (
    <Router>

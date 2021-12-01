@@ -1,7 +1,7 @@
 nav{
     
     padding-left:3em;
-    padding-right:2em;
+    padding-right:1em;
     box-shadow: 2px 4px 4px rgb(137, 139, 139),2px -4px -4px #898b8b;
 }
 
@@ -38,7 +38,7 @@ nav{
 
 
 .last-nav-item{
-    margin:0px 0px 0px 50px;
+    margin:0px 0px 0px 30px;
 }
 
 

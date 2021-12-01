@@ -1,19 +1,12 @@
-import React,{useState,useEffect} from 'react';
-import { withRouter ,Redirect} from 'react-router';
-import { instanceOf } from "prop-types";
-import { withCookies, Cookies } from "react-cookie";
+import React from 'react';
+import {Redirect} from 'react-router';
 import { Form, FormGroup, FormControl, 
-        ControlLabel, HelpBlock,Schema ,
-        Button,ButtonToolbar,Message
+        ControlLabel, Notification,Schema ,
+        Button,ButtonToolbar
     } from 'rsuite';
-import { connect } from 'react-redux'
-import { useCookies } from 'react-cookie'
-
-import { useHistory } from "react-router-dom";
 
 import utilisateurs from '../../api/utilisateur';
 import 'rsuite/dist/styles/rsuite-default.css'
-import {apiLogin} from '../../redux/utilisateur/login/loginAction'
 
 import './formLogin.css'
 const { StringType } = Schema.Types;
@@ -29,6 +22,12 @@ const model = Schema.Model({
 });
 
 
+function openError(msg) {
+  Notification.error({
+    title: "Erreur d'authentification",
+    description: msg
+  });
+}
 
 
 
@@ -84,7 +83,7 @@ class FormLogin2 extends React.Component {
       })
       .catch(res =>{
         const error = res.response.data
-        
+        openError(error.error? error.error :"Vérifier votre Email et Mot de passe.")
         this.setState({showMessage:true,isLoggedIn:false,err : error.error})
         
       })
@@ -94,7 +93,7 @@ class FormLogin2 extends React.Component {
 
 
   render() {
-    const { formError, formValue ,isLoggedIn} = this.state;
+    const { formValue ,isLoggedIn} = this.state;
 
     if(isLoggedIn === true){
             return (<Redirect to="/" />);
@@ -119,16 +118,7 @@ class FormLogin2 extends React.Component {
 
 
           <div className="first mt-3">
-            {this.state.showMessage===true ?(<div className="card">
-               <Message
-                    showIcon
-                    type="error"
-                    title="Erreur d'authentification"
-                    description={this.state.err !== "" ? this.state.err : "Vérifier votre Email et Mot de passe."}
-                  />
-              </div>): " "
-
-            }
+          
               
             <div className="row">
 

@@ -36,7 +36,7 @@ const CardLogin = (props) => {
               <p className="text-muted">Connectez-vous pour continuer.</p>
             </div>
             <FormLogin2/>
-            <div className="autre-option-login mt-4">
+            {/* <div className="autre-option-login mt-4">
               <div className="row mx-sm-auto text-sm-center">
                 <div className="col-md-4">
                   <p className="text-muted text-other-option">se connecter avec</p>
@@ -56,7 +56,7 @@ const CardLogin = (props) => {
                   </List>
                 </div>
               </div>
-            </div>
+            </div> */}
           </Col>
 
         </Row>

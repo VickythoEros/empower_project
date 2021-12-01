@@ -1,18 +1,7 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
-import {ButtonToolbar,
-  InputGroup,
-  Input,
-  Icon,
-  IconButton,
-  Badge,
-  InputPicker,
-  Button,
-  Loader,
-
-
-} from 'rsuite';
+import { Loader} from 'rsuite';
 
 
 import {useSelector, useDispatch,useStore} from 'react-redux'
@@ -20,7 +9,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 import 'rsuite/dist/styles/rsuite-default.css';
 
-import Reveal from 'react-reveal/Reveal';
 import { useHistory } from "react-router-dom";
 
 import "./accueil.css";
@@ -35,7 +23,14 @@ import { apiGetInfoUser } from '../../redux/getInfo/getInfoAction';
 import { apiListEvent } from '../../redux/events/listEvent/listEventAction';
 
 
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop+400)  
+
 const Accueil = (props) => {
+  
+  
+  const myRef = useRef(null);
+  const executeScroll = () => scrollToRef(myRef)
+
   
   const  store = useStore()
 
@@ -116,14 +111,16 @@ const Accueil = (props) => {
 
   return (
     <>
-      <NavbarHeader/>
+      <NavbarHeader executeScroll={executeScroll}  />
       <Header/>
 
       {/* contenants les evenemants */}
       <Container
                    fluid className="mx-auto text-center events-container">
         <Row className="py-3">
-          <h1  data-aos="slide-down" 
+          <h1
+            ref={myRef}
+            data-aos="slide-down" 
               data-aos-easing="ease-in-out"
               data-aos-mirror="true"
               data-aos-once="false"
