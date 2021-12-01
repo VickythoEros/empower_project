@@ -30,7 +30,7 @@ const Stepsform = () => {
 
     
     const onChange = nextStep => {
-      setStep(nextStep < 0 ? 0 : nextStep > 2 ? 2 : nextStep);
+      setStep(nextStep < 0 ? 0 : nextStep > 1 ? 1 : nextStep);
     };
   
     const onNext = () =>{ 
@@ -51,7 +51,7 @@ const Stepsform = () => {
           <Steps current={step}>
             <Steps.Item title="Informations personnelle" icon={<Icon icon="avatar" size="lg" />}  />
             <Steps.Item title="Autres Informations" icon={<Icon icon="list" size="lg" />}   />
-            <Steps.Item title="Vérification"  icon={<Icon icon="check-circle" size="lg" />}  />
+            {/* <Steps.Item title="Vérification"  icon={<Icon icon="check-circle" size="lg" />}  /> */}
           </Steps>
 
         </div>
@@ -69,7 +69,7 @@ const Stepsform = () => {
               </Button>
             </Col>  
             <Col className="mx-auto" md={12}  sm={12}>  
-              <Button className="float-right btn-style" onClick={onNext} disabled={step === 2}>
+              <Button style={{display: step === 1? "none":"block" }} className="float-right btn-style" onClick={onNext} disabled={step === 1}>
                 Suivant
               </Button>
             </Col>  

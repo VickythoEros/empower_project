@@ -102,7 +102,7 @@ const NavbarHeader = (props) => {
          { isAuth ? (
             <>
               <NavItem className="mx-3">
-              <Button className="btn-inscription" tag={Link} to="/dashboard">DashBoard</Button>
+              <Button className="btn-inscription" tag={Link} to="/dashboard">Mon Compte</Button>
               </NavItem>
               <NavItem className="mx-3">
               <Button className="btn-inscription" onClick={()=>{handleLogout()}} >Deconnexion</Button>
@@ -114,7 +114,7 @@ const NavbarHeader = (props) => {
               <Button className="btn-login" tag={Link} to="/connexion">Connexion</Button>
               </NavItem>
               <NavItem className="mx-3">
-              <Button className="btn-inscription" tag={Link} to="/type_creation_compte">Inscription</Button>
+              <Button className="btn-inscription" tag={Link} to="/inscription">Inscription</Button>
               </NavItem>
             </>
             ) }

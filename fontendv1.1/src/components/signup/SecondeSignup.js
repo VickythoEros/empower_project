@@ -3,8 +3,10 @@ import { Form, FormGroup, FormControl,
         ControlLabel, InputNumber,Schema ,
         Button,ButtonToolbar,DatePicker,
         InputPicker ,SelectPicker,Icon,Modal,
-        Content,Container,Col,Row, Loader,
+        Content,Container,Col,Row, Loader,IconButton
     } from 'rsuite';
+
+import {Label,Input,FormText} from 'reactstrap'
 
 import { Redirect} from 'react-router';
     
@@ -179,8 +181,8 @@ class FormSignup extends React.Component {
         annee_experience: '',
         poste_actuel: '',
         salaire_actuel: '',
-        point_fort: '',
-        point_faible: '',
+        // point_fort: '',
+        // point_faible: '',
 
         
         nom_entreprise: '',
@@ -209,7 +211,7 @@ class FormSignup extends React.Component {
     this.open = this.open.bind(this);
     this.onFileChange = this.onFileChange.bind(this);
     this.onFileChangeEntreprise = this.onFileChangeEntreprise.bind(this);
-    this.onFileChangeCv = this.onFileChangeCv.bind(this);
+    this.changeFilecv = this.changeFilecv.bind(this);
 
    
   }
@@ -230,7 +232,8 @@ class FormSignup extends React.Component {
   }
 
   onFileChange(e) {
-    this.setState({ photo: e.target.files[0] })
+     this.setState({ photo: e.target.files[0] })
+ 
   }
   
   
@@ -238,8 +241,9 @@ class FormSignup extends React.Component {
     this.setState({ photo_entreprise: e.target.files[0] })
   }
 
-  onFileChangeCv(e) {
+  changeFilecv(e) {
     this.setState({ cv: e.target.files[0] })
+   
   }
 
 
@@ -278,12 +282,13 @@ class FormSignup extends React.Component {
               const formDataCandidat = new FormData()
 
               formDataCandidat.append('niveau_etude', formValue.niveau_etude) 
+              formDataCandidat.append('secteur_activite', formValue.secteur_activite) 
               formDataCandidat.append('cv', cv)
               formDataCandidat.append('annee_experience', formValue.annee_experience)
               formDataCandidat.append('poste_actuel', formValue.poste_actuel)
               formDataCandidat.append('salaire_actuel', formValue.salaire_actuel)
-              formDataCandidat.append('point_fort', formValue.point_fort)
-              formDataCandidat.append('point_faible',formValue.point_faible)
+              // formDataCandidat.append('point_fort', formValue.point_fort)
+              // formDataCandidat.append('point_faible',formValue.point_faible)
               formDataCandidat.append('utilisateur', utilisateur.data.id)
               formDataCandidat.append('type_compte', formValue.type_compte)
               
@@ -348,7 +353,7 @@ class FormSignup extends React.Component {
     return (
 
       <div className="container">
-      {this.props.changeStepLoading ? (
+      {/* {this.props.changeStepLoading ? (
            <>  
            <Row>    
             <Col className="mx-auto" md={24}  sm={24}>  
@@ -359,7 +364,7 @@ class FormSignup extends React.Component {
 
       ):
       (
-        <>
+        <> */}
         <Form
             fluid
               ref={ref => (this.form = ref)}
@@ -377,7 +382,7 @@ class FormSignup extends React.Component {
                 <Content>
 
 
-              <div className="first" data-aos="zoom-in-down" style={ this.props.step == 0 ? dBlock : dNone}>
+              <div className="first"  style={ this.props.step == 0 ? dBlock : dNone}>
               
                 <Row className="mx-auto">
                     <Row className="">
@@ -445,19 +450,17 @@ class FormSignup extends React.Component {
                 <Row className="mt-4">
                     <Col className="px-4" md={8} sm={24}>
                       <ControlLabel>Photo de profil </ControlLabel>
-                      <div className="js">
-
-                        <div className="input-file-container">
-                          <input 
-                          onChange={this.onFileChange} className="input-file" id="my-file3" type="file"/>
-                          <label  className="input-file-trigger" tabindex="0">
-                            Choisir une photo
-                          </label>
-                        </div>
-                        <p className="file-return"></p>
+                      <FormGroup className="p-3">
                       
-                      </div>
-                    
+                        <Input
+                          className=""
+                          accept="image/*"
+                          onChange={this.onFileChange}
+                          type="file"
+                        />
+                       
+                      </FormGroup>
+                     
                     </Col>
                 </Row>
                 
@@ -465,7 +468,7 @@ class FormSignup extends React.Component {
               </div>
 
               {/* troisieme partie */}
-              <div className="third" data-aos="zoom-in-down" style={ this.props.step == 1 && this.state.formValue.type_compte ==="candidat" ? dBlock : dNone}>
+              <div className="third"  style={ this.props.step == 1 && this.state.formValue.type_compte ==="candidat" ? dBlock : dNone}>
                 <Row >
                   <Col className="px-4" md={12} sm={24}>
                     <TextField placeholder="Ex: Informatique" name="secteur_activite" label="Saisissez votre secteur d'activité ?" />
@@ -492,29 +495,26 @@ class FormSignup extends React.Component {
 
                   <Col className="px-4 mt-4 mt-md-0" md={12} sm={24}>
                     <ControlLabel>Votre CV </ControlLabel>
-                     <div className="js">
-
-                      <div className="input-file-container">
-                        <input 
-                         onChange={this.onFileChangeCv} className="input-file" id="my-file2" type="file"/>
-                        <label  className="input-file-trigger" tabindex="0">
-                          Choisir un fichier
-                        </label>
-                      </div>
-                      <p className="file-return"></p>
-                    
-                    </div>
+                    <FormGroup className="p-3">
                       
+                      <Input
+                        className=""
+                        onChange={this.changeFilecv}
+                        type="file"
+                      />
+                     
+                    </FormGroup>
+                    
                   </Col>
                 </Row>
-                <Row className="mt-4">
+                {/* <Row className="mt-4">
                   <Col className="px-4" md={12} sm={24}>
                     <TextField componentClass="textarea" size="lg" name="point_fort" label="Vos atouts" />
                   </Col>
                   <Col className="px-4 mt-4 mt-md-0" md={12} sm={24}>
                     <TextField name="point_faible" componentClass="textarea" size="lg" label="Vos points faible" />
                   </Col>
-                </Row>
+                </Row> */}
 
               </div>
               
@@ -522,7 +522,7 @@ class FormSignup extends React.Component {
         
 
               {/* entreprise */}
-              <div className="third" data-aos="zoom-in-down"  style={ this.props.step == 1 && this.state.formValue.type_compte ==="entreprise"  ? dBlock : dNone}>
+              <div className="third"  style={ this.props.step == 1 && this.state.formValue.type_compte ==="entreprise"  ? dBlock : dNone}>
                 <Row className="mt-4">
                   
                   <Col className="px-4" md={12} sm={24}>
@@ -601,30 +601,26 @@ class FormSignup extends React.Component {
 
 
 
-              { this.props.step === 2 && <ButtonToolbar>
-                <div className="mb-5 mt-2">
-               
-                  <Button  style={ this.props.step == 2  ? dBlock : dNone} className="float-md-right px-5 py-3"  appearance="primary" onClick={this.handleSubmit}>
-                    Enregistrer
-                  </Button>
-
-                </div>
-               
-              </ButtonToolbar>
-
-              }
+             
               
                 </Content>
               </Container >   
             </Form>
-            </>
+            {/* </>
             
 
 
       )
 
       }
-            
+             */}
+              <div className="mb-5 mt-4">
+               
+               <Button style={{display: this.props.step === 0? "none":"block" }} className="sendFromBtn" onClick={this.handleSubmit}>
+                 Enregistrer
+               </Button>
+
+             </div>
          
             <Modal backdrop="static" show={this.state.show} onHide={this.close} size="xs">
               <Modal.Body className="overflow-hidden">
