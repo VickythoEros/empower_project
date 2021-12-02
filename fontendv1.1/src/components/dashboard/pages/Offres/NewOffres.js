@@ -1,3 +1,4 @@
+import {useHistory} from 'react-router-dom';
 import {ButtonToolbar,
     IconButton,
     Icon,
@@ -19,8 +20,14 @@ import NewOffreForm from './NewOffreForm';
 
 import './NewOffres.css';
 export default function NewOffres(){
-
+    let history = useHistory();
     
+    const redirectCreateOffre = () => {
+        history.push({
+            pathname: '/dashboard/ownoffres',
+            
+        });
+    }
 
 
     return (
@@ -36,7 +43,7 @@ export default function NewOffres(){
                     </div>
                     <div className="body-new-offre mt-5">
 
-                        <NewOffreForm/> 
+                        <NewOffreForm redirectCreateOffre={redirectCreateOffre} /> 
                     </div>
 
             </Content>

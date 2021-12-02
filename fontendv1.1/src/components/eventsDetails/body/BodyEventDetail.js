@@ -463,7 +463,7 @@ function showAlertConfNotDisponible(date,heure) {
             
                 <div data-aos="zoom-in-down"   className="poste-event-details container mx-auto">
                     <h3 className="text-center">
-                        {(allPostesEvent && allPostesEvent.length > 0 )?"Postuler à des postes" : "Aucun poste disponible"}
+                        {(allPostesEvent && allPostesEvent.length > 0 )?"LISTE DES POSTES " : ""}
                     </h3>
                     <Row className="poste-event-postes mt-4">
                         {allPostesEvent.map((item,index)=>{
@@ -501,7 +501,7 @@ function showAlertConfNotDisponible(date,heure) {
                 /> 
                 <div className="conference-event-details container mx-auto mt-5 ">
                     <h3 className="text-center mt-5">
-                        {(allConferencesEvent && allConferencesEvent.length > 0 )?"Participer aux conférences" : "Aucune conférence disponible"}
+                        {(allConferencesEvent && allConferencesEvent.length > 0 )?"LISTE DES CONFERENCES" : ""}
                     </h3>
                     <Row className="conference-event-conferences mx-auto mt-4">
                         {allConferencesEvent.map((item,index)=>{

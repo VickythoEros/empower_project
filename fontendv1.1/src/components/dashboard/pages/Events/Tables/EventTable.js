@@ -1,12 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import { Button, Table,ButtonToolbar } from 'rsuite';
-import { withRouter,Redirect } from 'react-router';
-import { connect } from 'react-redux'
-import { useHistory } from "react-router-dom";
+import { Table } from 'rsuite';
 
-// import {apiOffreGet} from '../../../../redux/entreprise/getOffres/getOffreAction'
-// import postes from '../../../../api/poste'
-const { Column, HeaderCell, Cell, Pagination,Loader } = Table;
+const { Column, HeaderCell, Cell, } = Table;
 
 
 function dataDebut(date){
@@ -58,28 +53,27 @@ function constitueData(data){
             height={400}
             data={data}
             onRowClick={data => {
-              console.log(data);
               props.handleActionShowDetail(data)
             }}
           >
             
             <Column width={300} >
-              <HeaderCell style={{background:'#000',color:"#fff"}}>Titre</HeaderCell>
+              <HeaderCell style={{background:'#1ea',color:"#fff"}}>Titre</HeaderCell>
               <Cell dataKey="titre" />
             </Column>
   
             <Column width={300}>
-              <HeaderCell style={{background:'#000',color:"#fff"}}>Description</HeaderCell>
+              <HeaderCell style={{background:'#1ea',color:"#fff"}}>Description</HeaderCell>
               <Cell dataKey="description" />
             </Column>
   
             <Column width={300}>
-              <HeaderCell style={{background:'#000',color:"#fff"}}>Date début</HeaderCell>
+              <HeaderCell style={{background:'#1ea',color:"#fff"}}>Date début</HeaderCell>
               <Cell dataKey="date_debut" />
             </Column>
 
             <Column width={300}>
-              <HeaderCell style={{background:'#000',color:"#fff"}}>Heure début</HeaderCell>
+              <HeaderCell style={{background:'#1ea',color:"#fff"}}>Heure début</HeaderCell>
               <Cell dataKey="heure_debut" />
             </Column>
   

@@ -144,11 +144,11 @@ export default function DetailEventTable(props) {
     //     },[])
   
    
-  function handleActionEditEvent() {
+  function handleActionEditEvent(data) {
     history.push({
         pathname: '/dashboard/edit_event',
         search: '?query=abc',
-        state: {eventRowData: eventRowID}
+        state: {eventRowData: data._id}
     });
 
   }
@@ -157,7 +157,7 @@ export default function DetailEventTable(props) {
     <>
     <DeleteModal loadingDelete={loadingDelete} showDeleteModal={showDeleteModal} handleDeleteEvent={handleDeleteEvent} closeDeleteModal={closeDeleteModal} />
     <Container className="bg-white px-5">
-        <Content>
+        <Content  data-aos="zoom-in-down">
         {loading ? (
                 <>
                     <div className="mx-auto text-center mt-5" >
@@ -167,18 +167,18 @@ export default function DetailEventTable(props) {
                 </>
               ):(
                 <> 
-                    <Row  data-aos="zoom-in-down">
-                        <Col data-aos-delay="500"  data-aos="slide-right"  md={12} sm={12}>
+                    <Row >
+                        <Col  md={12} sm={12}>
                            
                         <Button onClick={() => {history.goBack() }} color="violet"  className="mt-3 ml-3" appearance="ghost">
                             <Icon className="mr-2" icon="angle-double-left" /> retour
                         </Button>
                         </Col>
-                        <Col  data-aos-delay="600" data-aos="slide-up"  md={12} sm={12}>
+                        <Col  md={12} sm={12}>
 
                             <ButtonToolbar className="float-md-right">
                           
-                          <Button onClick={() => handleActionEditEvent()} color="blue"  className="mt-3 ml-3 " appearance="ghost">
+                          <Button onClick={() => handleActionEditEvent(eventDataRow)} color="blue"  className="mt-3 ml-3 " appearance="ghost">
                               <Icon className="mr-2" icon="edit" /> Editer
                           </Button>
                           
@@ -190,19 +190,19 @@ export default function DetailEventTable(props) {
                         </Col>
                        
                     </Row>
-                    <Row  data-aos="zoom-in-down">
-                        <Col data-aos-delay="700"  data-aos="slide-right"  md={8} sm={12}>
+                    <Row >
+                        <Col  md={8} sm={12}>
                             <h5 color="violet"  className="mt-3 ml-3">
                                 Details Evénement
                             </h5>
                         </Col>
                        
                     </Row>
-                    <Panel bordered shaded data-aos="zoom-in-down" className="mt-4">
+                    <Panel bordered shaded className="mt-4">
                     <Row className="details-event-table-header">
-                        <Row  data-aos="zoom-in-down" className="mt-1 px-2 ml-3">
-                            <Col data-aos-delay="700"  data-aos="slide-right"  md={8} sm={12}>
-                            <p data-aos-delay="500"  data-aos="slide-right">
+                        <Row   className="mt-1 px-2 ml-3">
+                            <Col   md={8} sm={12}>
+                            <p>
                                     Titre    :<span className="ml-4">
                                         {eventDataRow.titre}
                                     </span>
@@ -210,21 +210,21 @@ export default function DetailEventTable(props) {
                             </Col>
                         
                         </Row>
-                        <Row  data-aos="zoom-in-down" className="px-2 ml-3">
-                            <Col data-aos-delay="500"  data-aos="slide-right"  md={12} sm={12}>
+                        <Row   className="px-2 ml-3">
+                            <Col  md={12} sm={12}>
                                 
-                                <p data-aos-delay="500"  data-aos="slide-right">
+                                <p >
                                     Date de début    :<span className="ml-4">
                                     {dataDebut(eventDataRow.date_debut)}
                                     </span>
                                 </p>
-                                <p data-aos-delay="500"  data-aos="slide-right">
+                                <p >
                                     Heure de début    :<span className="ml-4">
                                     {dataMinute(eventDataRow.heure_debut)}
                                     </span>
                                 </p>
                                 
-                                <p data-aos-delay="500"  data-aos="slide-left">
+                                <p >
                                     Pays    :<span className="ml-4">
                                     {eventDataRow.pays}
                                     </span>
@@ -232,18 +232,18 @@ export default function DetailEventTable(props) {
                             
                             
                             </Col>
-                            <Col  data-aos-delay="600" data-aos="slide-in"  md={12} sm={12}>
-                            <p data-aos-delay="500"  data-aos="slide-left">
+                            <Col   md={12} sm={12}>
+                            <p>
                                     Date de fin    :<span className="ml-4">
                                     {dataDebut(eventDataRow.date_fin)}
                                     </span>
                                 </p>
-                                <p data-aos-delay="500"  data-aos="slide-left">
+                                <p >
                                     Heure de fin    :<span className="ml-4">
                                     {dataMinute(eventDataRow.heure_fin)}
                                     </span>
                                 </p>
-                                <p data-aos-delay="500"  data-aos="slide-left">
+                                <p >
                                     Ville    :<span className="ml-4">
                                     {eventDataRow.ville}
                                     </span>
@@ -253,7 +253,7 @@ export default function DetailEventTable(props) {
                     </Row>
                     </Panel>
 
-                    <Panel bordered data-aos="zoom-in-down" className="mt-4">
+                    <Panel bordered className="mt-4">
                         <Row className="mt-1">
                             <Col md={24} sm={12}>
                                 <h6 className="text-center mx-auto font-weight-bold">
@@ -272,15 +272,15 @@ export default function DetailEventTable(props) {
                         
                         </Row>
                     </Panel>
-                    <Row  data-aos="zoom-in-down">
-                        <Col data-aos-delay="700"  data-aos="slide-right"  md={8} sm={12}>
+                    <Row >
+                        <Col md={8} sm={12}>
                             <h6 color="violet"  className="mt-3 ml-3">
                                 Activités
                             </h6>
                         </Col>
                        
                     </Row>
-                    <Row data-aos="zoom-in-down"  className="mt-3" data-aos-delay="700">
+                    <Row className="mt-3" >
                         <Col md={16} sm={12}>
                         <ChartComponent1 eventDataRow={eventDataRow}/>
                         </Col>
@@ -290,15 +290,15 @@ export default function DetailEventTable(props) {
                         </Col>
                       
                     </Row>
-                    <Row  data-aos="zoom-in-down" className="mt-4">
-                        <Col data-aos="slide-right"  md={8} sm={12}>
+                    <Row  className="mt-4">
+                        <Col md={8} sm={12}>
                             <h6 color="violet"  className="mt-3 ml-3">
                                 Participants
                             </h6>
                         </Col>
                        
                     </Row>
-                    <Row  data-aos="zoom-in-down"  className="mt-3" >
+                    <Row  className="mt-3" >
                         <Col md={8} sm={12}>
                             <CardEventChart1 eventDataRow={eventDataRow} />
 
@@ -309,7 +309,7 @@ export default function DetailEventTable(props) {
                       
                     </Row>
 
-                    <Row  data-aos="zoom-in-down" className="mx-5">
+                    <Row className="mx-5">
                         <Col  md={8} sm={12}>
                             <h6 color="violet"  className="mt-3 ml-3">
                                 Crée par 
@@ -317,7 +317,7 @@ export default function DetailEventTable(props) {
                         </Col>
                        
                     </Row>
-                    <Row  data-aos="zoom-in-down" className="px-2 ml-3">
+                    <Row className="px-2 ml-3">
                         <Col   md={12} sm={12}>
                         <p >
                                 Nom    :<span className="ml-4">
@@ -358,8 +358,6 @@ export default function DetailEventTable(props) {
                             </p>
                         </Col>
                     </Row>
-
-                    {/* <CreateUserDetail eventDataRow={eventDataRow} /> */}
                   
                 </>
 

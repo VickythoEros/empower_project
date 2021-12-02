@@ -32,11 +32,11 @@ import { apiListEvent } from '../../../../../redux/events/listEvent/listEventAct
 const data= [
     
     {
-      "label": "Date de publication",
+      "label": "Ordre decroissant",
       "value": "Date"
     },
     {
-      "label": "Nom",
+      "label": "Ordre Croissant",
       "value": "Nom"
     }
   ]
@@ -213,7 +213,14 @@ export default function ListEvent({match}) {
        <>
             <Container className="bg-white p-3">
               <Content>
-                  
+                   
+              
+            <div className="col-12 col-md-4 ml-n4">
+              <h4 className="h4 text-center font-weight-bold" style={{color:"#1ce"}}>
+              <IconButton icon={<Icon icon="list" />} circle size="lg" />
+              Liste des événements
+              </h4>
+            </div>
                   <Row  data-aos="zoom-in-down">
                               <Col className="p-3 text-center"  data-aos="slide-right"  md={12} sm={12}>
                                   <InputGroup inside>
@@ -230,80 +237,34 @@ export default function ListEvent({match}) {
 
                     </Row>
 
-           
-              
-            <div className="col-12 col-md-4 mx-auto text-center">
-              <h4 className="h4 text-center">
-                    Liste des événements
-              </h4>
-            </div>
+          
 
             <div className="listEvent-table-container">
-              <Router>
-                  
-                <EntretienNav link1="/dashboard/list_events" link2="/dashboard/list_events_attentes" text1="Evénements validés" text2="Evénements en attentes" />
-                <div className="body-conf-table-container">
+            <div className="body-conf-table-container">
                 
-                  <div className="row">
-                      <div className="col-12 mx-auto pb-3">
-                          
-                          <ButtonToolbar className="float-md-right mx-auto">
-                              <IconButton onClick={()=> handleNewEvent()} appearance="ghost" icon={<Icon icon="plus" />} placement="right">
-                                  Nouvel Evénements
-                              </IconButton>
-                          </ButtonToolbar>
-
-                      </div>
-                  </div>
-                {loading ? (
-                    <>
-                        <div className="mx-auto text-center mt-5" >
-                            <Loader
-                             className="m-auto text-center mt-5 " backdrop size="md" content="chargement..." vertical />
-                        </div> 
-                    </>
-                ):(
-                    <>
-
-                    {umptyData ? (
-                        <>
-
-                        <p>
-                            aucun Evénement 
-                        </p>
-
-                        </>
-                    ):(
-                        <>
-                
-                   
-                  <Panel shaded>
+               
+              <Panel shaded>
+              <div className="row">
+                    <div className="col-12 mx-auto pb-3">
                         
-                    <Route exact path="/dashboard/list_events" component={()=> <EventTable listEvent={listEventData}
-                      handleActionShowDetail={handleActionShowDetail}
-                     /> }/>
+                        <ButtonToolbar className="float-md-right mx-auto">
+                            <IconButton onClick={()=> handleNewEvent()} appearance="ghost" icon={<Icon icon="plus" />} placement="right">
+                                Nouvel Evénements
+                            </IconButton>
+                        </ButtonToolbar>
 
-                    {/* <Route path="/dashboard/entretiens_accepte" component={()=> <EntretienTable 
-                    handleTextIndication={handleTextIndication}  entretien={dataValide} etat="valide" handleCall={handleCall} dataClickConf={(value)=>dataClickConf(value)} dataM={rowClickData} openModal={openModal}  /> }/> */}
-
-                    {/* <Route path="/dashboard/entretiens_accepte" component={TablesAttentes}/>
-
-                    <Route path="/dashboard/conferences/annules" component={TablesAnnules}/> */}
-                    </Panel>
-                    </>
-
-                    )}
-
-                    </>
-
-                    )}
+                    </div>
                 </div>
-
-              </Router>
-
-            
-            {/* <ModalShowConf rows={rows} rowClickData={rowClickData} showModal={showModal} closeModal= {()=>closeModal} handleCall={ ()=>handleCall} handleEdit={()=> handleEdit} /> */}
-
+      
+                        
+                <Route exact path="/dashboard/list_events" component={()=> <EventTable listEvent={listEventData}
+                handleActionShowDetail={handleActionShowDetail}
+                   /> }/>
+    
+                     
+                </Panel>
+                </div>
+          
             </div>
 
         </Content>

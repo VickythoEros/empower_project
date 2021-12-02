@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import {useHistory} from 'react-router-dom';
 import {ButtonToolbar,
     IconButton,
     Icon,
@@ -23,9 +24,10 @@ import './NewEvent.css';
 import event1 from '../../../../../assets/images/dashboard/event/event1.jpg'
 
 export default function NewEvent(){
-
+    let history = useHistory();
     const [step, setStep] = React.useState(0);
     const [loadingNext, setLoadingNext] = React.useState(0);
+    const [eventIsCreate, setEventIsCreate] = useState(false)
     const onChange = nextStep => {
         setStep(nextStep < 0 ? 0 : nextStep > 1 ? 1 : nextStep);
     };
@@ -46,6 +48,18 @@ export default function NewEvent(){
     },[step]);
 
     
+  const redirectCreateEvent = () => {
+    history.push({
+        pathname: '/dashboard/list_events',
+        
+    });
+  }
+
+    // if(eventIsCreate === true){
+    //     return (<Redirect to="/dashboard/list_events" />);
+    // }
+    // else{
+    
     return (
         <>
             <section className="container section-general-newEntretien bg-white">
@@ -54,25 +68,15 @@ export default function NewEvent(){
                         <h4 className="text-center mx-auto">
                             Enregistrement de nouvel événement
                         </h4>
-                        {/* <p className="text-center">Veuillez bien renseigner les informations</p> */}
+                     
                     </div>
-                    {/* <div className="py-1 px-3">
-                        <Steps  current={step}>
-                            <Steps.Item title="Finished" />
-                            <Steps.Item title="In Progress" />
-                            <Steps.Item title="Waiting" />
-                        </Steps>
-                    </div> */}
+                    
                     <div className="row">
-                    {/* <div className="col-md-3 d-none d-md-block">
-                        <img atl="logo"
-                        src={event1}
-                        className="img-fluid"
-                        /></div> */}
+                 
                     <div className="body-new-event mx-auto text-center  col-12">
                     <div className="py-0 card-new-event-form">
 
-                    <NewEventForm setStep={setStep} step={step} loadingNext={loadingNext} /> 
+                    <NewEventForm redirectCreateEvent={redirectCreateEvent} setStep={setStep} step={step} loadingNext={loadingNext} /> 
                     </div>
                     </div>
 
@@ -101,4 +105,5 @@ export default function NewEvent(){
 
         </>
         )
+    // }
 }

@@ -32,11 +32,11 @@ import TableOffre from './TableOffre';
 const data= [
     
     {
-      "label": "Date de publication",
+      "label": "Date decroissante",
       "value": "Date"
     },
     {
-      "label": "Nom",
+      "label": "Date croissante",
       "value": "Nom"
     }
   ]
@@ -61,8 +61,9 @@ export default function OwnOffres() {
             <Container className="bg-white p-3">
               <Content>
                     <div className="row">
-                        <div className="col-12 mx-auto text-center">
-                            <h4 className="">
+                        <div className="col-12 mx-auto ">
+                            <h4 className="font-weight-bold" style={{color:"#1ce"}}>
+                            <IconButton icon={<Icon icon="list" />} circle size="lg" />
                                 Liste des offres
                             </h4>
                         </div>
@@ -71,7 +72,7 @@ export default function OwnOffres() {
                   <Row  data-aos="zoom-in-down">
                               <Col className="p-3 text-center"  md={12} sm={12}>
                                   <InputGroup inside>
-                                      <Input size="lg" placeholder="Recherche..." />
+                                      <Input size="lg" placeholder="Trier par..." />
                                       <InputGroup.Button>
                                           <Icon icon="search" />
                                       </InputGroup.Button>
@@ -88,17 +89,7 @@ export default function OwnOffres() {
             
             <div data-aos="zoom-in-down" className="ownoffre-table-container mt-md-2 mt-2 ">
                 
-                    {/* <div className="row">
-                        
-                         <div className="col-12 mx-auto pb-3">
-                          <ButtonToolbar className="float-md-right mx-auto">
-                              <IconButton onClick={()=>handleActionNewOffre()} appearance="ghost" icon={<Icon icon="plus" />} placement="right">
-                                  Nouvelle offre
-                              </IconButton>
-                          </ButtonToolbar>
-
-                        </div>
-                    </div> */}
+                
                 <div className="pt-3">
                 <Panel shaded>
                     <TableOffre  handleActionNewOffre={handleActionNewOffre} />

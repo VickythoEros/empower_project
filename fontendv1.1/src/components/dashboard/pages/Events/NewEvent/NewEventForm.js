@@ -1,6 +1,5 @@
 import React from 'react';
-import RichTextEditor, { stateToHTML } from "react-rte";
-import parse from 'html-react-parser';
+
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux'
 import {ButtonToolbar,
@@ -187,7 +186,7 @@ class NewEventForm extends React.Component {
   }
 
   handleSubmit() {
-    const { formValue, video,photo,date_debut,date_fin, heure_debut,heure_fin,chronogramme} = this.state;
+    const { formValue, video,chronogramme} = this.state;
    
 
     if (!this.form.check()) {
@@ -222,6 +221,8 @@ class NewEventForm extends React.Component {
 
           this.setState(initialStateFormEvent)
           this.props.setStep(0)
+          // this.props.setEventIsCreate(true)
+          this.props.redirectCreateEvent()
         }
         else{
           this.openError()
@@ -237,35 +238,7 @@ class NewEventForm extends React.Component {
   render() {
     const { formError, formValue ,chronoValide,showError,show} = this.state;
 
-// // ajout de la classe JS à HTML
-// document.querySelector("html").classList.add('js');
 
-// // initialisation des variables
-// var fileInput = document.querySelector( ".input-file" ),
-// 	button = document.querySelector( ".input-file-trigger" ),
-// 	the_return = document.querySelector(".file-return");
-
-// // action lorsque la "barre d'espace" ou "Entrée" est pressée
-// button.addEventListener( "keydown", function( event ) {
-// 	if ( event.keyCode == 13 || event.keyCode == 32 ) {
-// 		fileInput.focus();
-// 	}
-// });
-
-// // action lorsque le label est cliqué
-// button.addEventListener( "click", function( event ) {
-// 	fileInput.focus();
-// 	return false;
-// });
-
-// // affiche un retour visuel dès que input:file change
-// fileInput.addEventListener( "change", function( event ) {
-// 	the_return.innerHTML = this.value;
-// });
-
-
-
-    
     return (
       <div className="mx-auto new-event-form-container py-1 px-md-5 px-2"  data-aos="zoom-in-down">
         

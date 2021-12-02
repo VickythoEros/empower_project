@@ -22,7 +22,6 @@ import { apiConnect } from './redux/connexion/connectAction';
 import { PrivateRoute } from './services/PrivateRoute';
 
 
-const TypeAuth = lazy(() => import('./views/Signup/TypeAuth'));
 const Accueil = lazy(() => import('./views/Accueil'));
 const Login = lazy(() => import('./views/Login/login'));
 const Signup = lazy(() => import('./views/Signup/Signup'));
@@ -52,7 +51,6 @@ function App(props) {
         <Route path="/connexion" component={Login} />
         <Route path="/inscription" component={Signup} />
 
-        <Route path="/type_creation_compte" component={TypeAuth} />
         
         <Route path="/event_details" component={EventDetails} />
         

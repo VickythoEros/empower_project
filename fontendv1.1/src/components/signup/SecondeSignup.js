@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import { Form, FormGroup, FormControl, 
         ControlLabel, InputNumber,Schema ,
-        Button,ButtonToolbar,DatePicker,
-        InputPicker ,SelectPicker,Icon,Modal,
-        Content,Container,Col,Row, Loader,IconButton
+        Button,DatePicker,
+        InputPicker ,SelectPicker,Modal,
+        Content,Container,Col,Row,
     } from 'rsuite';
 
-import {Label,Input,FormText} from 'reactstrap'
+import {Input,} from 'reactstrap'
 
 import { Redirect} from 'react-router';
     

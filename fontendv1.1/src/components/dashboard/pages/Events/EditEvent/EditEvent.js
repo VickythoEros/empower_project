@@ -33,7 +33,7 @@ export default function EditEvent(){
 
     const [step, setStep] = useState(0);
     const [eventDataRow, setEventDataRow] = useState([])
-    const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(false)
 
     const location = useLocation();
     const eventRowID = location.state.eventRowData;
@@ -72,14 +72,7 @@ export default function EditEvent(){
   
           })
   
-          var timer1 = setTimeout(() => {
-                  setLoading(false)
-           
-            }, 1000);
-      
-            return () => {
-              clearTimeout(timer1);
-            };
+       
         },[])
   
 

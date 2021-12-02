@@ -162,6 +162,8 @@ class NewOffreForm extends React.Component {
         this.setState({load: false})
         
         this.handleActionNewOffre()
+        this.props.redirectCreateOffre()
+        
       }
       else{
         this.setState({load: false})

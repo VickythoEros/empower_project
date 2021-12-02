@@ -11,7 +11,7 @@ import ConferenceDetail from '../../components/dashboard/pages/Conferences/Confe
 import EditOffre from '../../components/dashboard/pages/Offres/EditOffre';
 import VideoConference1 from '../../components/dashboard/pages/Conferences/Video/VideoConference1'
 import NewConference from './../../components/dashboard/pages/Conferences/NewConference';
-import Page from './Voir';
+
 
 
 // importation des components dynamiquement
@@ -147,10 +147,6 @@ export default function Dashboard({match}){
             <Route path={`${match.url}/detail_collaborateur`} component={DetailsCollaborateur}/ >
 
             <Route path={`${match.url}/statistiques`} component={Statistiques}/ >
-
-            {/* <Route path={`${match.url}/voir`} component={Page}/ > */}
-            
-            
 
           </div>
       </div>

@@ -9,8 +9,6 @@ import twitter from '../../assets/images/login/twitter.png';
 import apple from '../../assets/images/signup/apple.png';
 
 import './cardSignup.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 // card permettant d'effectuer l'inscription de nouveau membre
 
 

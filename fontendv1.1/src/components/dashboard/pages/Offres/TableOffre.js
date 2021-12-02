@@ -227,27 +227,27 @@ function constitueData(data){
           >
             
             <Column width={200} fixed>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Titre</HeaderCell>
+              <HeaderCell style={{background:'#1ae',color:'#fff'}} >Titre</HeaderCell>
               <Cell dataKey="titre" />
             </Column>
   
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Type contrat</HeaderCell>
+              <HeaderCell style={{background:'#1ae',color:'#fff'}} >Type contrat</HeaderCell>
               <Cell dataKey="type_emplois" />
             </Column>
   
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >pays</HeaderCell>
+              <HeaderCell style={{background:'#1ae',color:'#fff'}} >pays</HeaderCell>
               <Cell dataKey="pays" />
             </Column>
 
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Ville</HeaderCell>
+              <HeaderCell style={{background:'#1ae',color:'#fff'}} >Ville</HeaderCell>
               <Cell dataKey="ville" />
             </Column>
 
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Description</HeaderCell>
+              <HeaderCell style={{background:'#1ae',color:'#fff'}} >Description</HeaderCell>
               <Cell dataKey="description" />
             </Column>
   

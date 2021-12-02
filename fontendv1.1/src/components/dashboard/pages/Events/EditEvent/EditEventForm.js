@@ -86,7 +86,7 @@ class EditEventForm extends React.Component {
       photo:this.props.evenData.photo,
       
       formError: {},
-      chronogramme:JSON.stringify(JSON.parse(this.props.evenData.chronogramme))
+      chronogramme:''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onFileVideo = this.onFileVideo.bind(this);
