@@ -127,16 +127,6 @@ class NewFormationForm extends React.Component {
     this.setState({ show: true });
   }
 
-  handleActionNewFormation = e => {
-    setTimeout(() => {
-      this.setState({evenement:''})
-      this.setState(initialState)
-      this.props.history.push("/dashboard/new_formation");
-      
-      this.close()
-      
-    },2000)
-  };
 
   selectEventChange = (evenement)=>{
      
@@ -176,7 +166,7 @@ class NewFormationForm extends React.Component {
       this.open()
       this.setState({load: false})
       
-      this.handleActionNewFormation()
+      this.props.redirectCreateFormation()
     }
     else{
 

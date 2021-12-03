@@ -1,13 +1,7 @@
 import React from 'react';
-import RichTextEditor, { stateToHTML } from "react-rte";
-import parse from 'html-react-parser';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux'
 import {ButtonToolbar,
-    IconButton,
-    Icon,
-    Loader,
-    Placeholder,
     Button,
     Form,
     FormGroup,
@@ -16,9 +10,6 @@ import {ButtonToolbar,
     Schema,
     SelectPicker,
     DatePicker,
-    Toggle,
-    InputNumber,
-    Slider,
     Container,
     Content,
     Row,
@@ -32,12 +23,11 @@ import {ButtonToolbar,
 import 'rsuite/dist/styles/rsuite-default.css';
 
 import { apiNewConference } from '../../../../redux/entreprise/newConference/newConferenceAction';
-import ConferenceModal from './ConferenceModal';
 import './NewConferenceForm.css'
 import configureStore from '../../../../redux/store';
 import { alertError } from '../../../others/NotificationInfog';
 
-const { StringType, NumberType, DateType} = Schema.Types;
+const { StringType, DateType} = Schema.Types;
 
 const model = Schema.Model({
    
@@ -70,37 +60,7 @@ const model = Schema.Model({
   }
 
 
-      function SliderNbParticipant() {
-        const [value, setValue] = React.useState(0);
-        return (
-          <div className="row">
-            <div className="col-md-9">
-              <Slider
-                progress
-                style={{ marginTop: 16 }}
-                value={value}
-                onChange={value => {
-                  setValue(value);
-                }}
-              />
-            </div>
-            <div className="col-md-3">
-              <InputNumber
-                min={0}
-                max={100}
-                value={value}
-                onChange={value => {
-                  setValue(value);
-                }}
-              />
-            </div>
-          </div>
-        );
-      }
 
-
-
-  
       const initialState ={
         formValue: {
           theme: '',
@@ -159,17 +119,7 @@ class NewConferenceForm extends React.Component {
     this.setState({ show: true });
   }
 
-  handleActionNewConference = e => {
-    setTimeout(() => {
-      this.setState({evenement:''})
-      this.setState(initialState)
-      this.props.history.push("/dashboard/new_conference");
-      
-      this.close()
-      
-    },2000)
-  };
-
+  
   selectEventChange = (evenement)=>{
      
     this.setState({evenement})
@@ -207,7 +157,7 @@ class NewConferenceForm extends React.Component {
       this.open()
       this.setState({load: false})
       
-      this.handleActionNewConference()
+      this.props.redirectCreateConference()
     }
     else{
 
@@ -218,8 +168,6 @@ class NewConferenceForm extends React.Component {
   },1000)
 
 
-    // console.log(dataSend,'conf value')
-    // this.props.apiNewConfFunc(dataSend)
 
   }
 
@@ -273,16 +221,7 @@ class NewConferenceForm extends React.Component {
                         </Col>
                     </Row>
                   <Row className="mt-4" >
-                     {/* <Col md={12} sm={12}>
-                          <TextField size="lg" name="date_debut" 
-                          accepter={DatePicker} 
-                          placement="auto"
-                          oneTap
-                          placeholder="selectionner"
-                          style={{ width: 300 }}
-                          format='YYYY-MM-DD'
-                          label="Date de la conference" />
-                        </Col> */}
+              
                         <Col md={8} sm={24}>
                         <TextField size="lg" name="heure_debut" 
                           accepter={DatePicker} 
@@ -315,103 +254,6 @@ class NewConferenceForm extends React.Component {
                        
                     </Row>
                     
-                    {/* <Row className="mt-5">
-                        <Col md={12} sm={12}>
-                        <TextField size="lg" name="date_fin" 
-                          accepter={DatePicker} placement="auto"
-                          oneTap
-                          placeholder="selectionner"
-                          style={{ width: 300 }}
-                          format='YYYY-MM-DD'
-                          label="Date de fin de la conference" />
-                        </Col>
-                       
-                        <Col md={12} sm={12}>
-                        <TextField size="lg" name="heure_fin" 
-                          accepter={DatePicker} 
-                          placement="auto"
-                          placeholder="selectionner"
-                          style={{ width: 300 }}
-                          format="HH:mm"
-                          label="Heure de fin de la conference" />
-                        </Col>
-                        
-                    
-                       
-                    </Row> */}
-                  {/* <Row className="mt-4">
-                        <Col md={12} sm={12}>
-                          <div className="">
-                            <span className="p-1 mr-2"> 
-                              Definir un mot de passe ? 
-                            </span>
-                            <Toggle size="lg"
-                            value={this.state.etat_password}
-                            onChange={value => {
-                                      this.setState({etat_password:value});
-                                    }}
-                            checkedChildren="Oui" 
-                            unCheckedChildren="Non" />
-
-                          </div>
-                          {this.state.etat_password === true && (
-                            <div className="my-2">
-                                <TextField size="lg" name="password" type="password" />  
-                            </div>
-                          )
-
-                          }
-                        </Col>
-                        
-                        <Col md={12} sm={12}>
-                          <div className="">
-                            <span className="p-1 mr-2"> 
-                              Limiter la conférence ? 
-                            </span>
-                            <Toggle size="lg" 
-                            value={this.state.etat_participant}
-                            onChange={value => {
-                                      this.setState({etat_participant:value});
-                                    }}
-                            checkedChildren="Oui" 
-                            unCheckedChildren="Non" />
-
-                          </div>
-                          {this.state.etat_participant === true && (
-                              <div className="my-2">
-                              
-                                <div className="row">
-                                    <div className="col-md-9">
-                                      <Slider
-                                        progress
-                                        style={{ marginTop: 16 , color: '#1ce' }} 
-                                        value={this.state.nb_participant}
-                                        onChange={value => {
-                                          this.setState({nb_participant:value});
-                                        }}
-                                      />
-                                    </div>
-                                    <div className="col-md-3">
-                                      <InputNumber
-                                      size="lg"
-                                        min={0}
-                                        max={100}
-                                        value={this.state.nb_participant}
-                                        onChange={value => {
-                                          this.setState({nb_participant:value});
-                                        }}
-                                      />
-                                    </div>
-                                  </div>
-
-                              </div>
-                          )}
-
-                        </Col>
-                       
-                    </Row> */}
-
-
                   <Row className="mt-4">
                         <Col md={24} sm={24}>
                         <TextField size="lg" style={{maxWidth:900}} name="description" placeholder="Ex: Formation gestion de stresses"  rows={5} componentClass="textarea" label="Description" />

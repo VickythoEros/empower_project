@@ -206,32 +206,32 @@ export default function TablesValides(props){
           >
             
             <Column width={200} fixed>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Theme</HeaderCell>
+              <HeaderCell style={{background:'purple',color:'#fff'}} >Theme</HeaderCell>
               <Cell dataKey="theme" />
             </Column>
   
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Description</HeaderCell>
+              <HeaderCell style={{background:'purple',color:'#fff'}} >Description</HeaderCell>
               <Cell dataKey="description" />
             </Column>
   
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Date de début</HeaderCell>
+              <HeaderCell style={{background:'purple',color:'#fff'}} >Date de début</HeaderCell>
               <Cell dataKey="date_debut" />
             </Column>
 
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Heure de début</HeaderCell>
+              <HeaderCell style={{background:'purple',color:'#fff'}} >Heure de début</HeaderCell>
               <Cell dataKey="heure_debut" />
             </Column>
 
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Date de fin</HeaderCell>
+              <HeaderCell style={{background:'purple',color:'#fff'}} >Date de fin</HeaderCell>
               <Cell dataKey="date_fin" />
             </Column>
 
             <Column width={200}>
-              <HeaderCell style={{background:'#000',color:'#fff'}} >Heure de fin</HeaderCell>
+              <HeaderCell style={{background:'purple',color:'#fff'}} >Heure de fin</HeaderCell>
               <Cell dataKey="heure_fin" />
             </Column>
 

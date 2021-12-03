@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation,useHistory } from "react-router-dom";
 import {ButtonToolbar,
     IconButton,
     Icon,
@@ -21,7 +21,16 @@ import './NewFormation.css';
 import conf from '../../../../assets/images/dashboard/conferences/conf2.jpg'
 
 export default function NewFormation(){
-  
+    let history = useHistory();
+    
+    
+    const redirectCreateFormation = () => {
+        history.push({
+            pathname: '/dashboard/formations',
+            
+        });
+      }
+    
     
 
     return (
@@ -36,17 +45,8 @@ export default function NewFormation(){
                     </div>
                     <div className="body-new-conference row p-4">
 
-                        {/* <div className="col-md-8"> */}
-                            <NewFormationForm /> 
-                        {/* </div> */}
-                        
-                        {/* <div className="mx-auto col-md-4">
-                            <img atl="logo"
-                            src={conf}
-                            className="img-fluid"
-                        />
-                        </div> */}
-
+                            <NewFormationForm redirectCreateFormation={redirectCreateFormation} /> 
+                      
                     </div>
 
                 </div>

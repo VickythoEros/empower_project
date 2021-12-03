@@ -150,12 +150,14 @@ export default function Formations({match}) {
         <Content>
         {/* <section className="content bg-white">
            */}
-        <div className="col-12 py-2">
-              <h4 className="mx-auto text-center">
+        
+          <div className="col-12 py-2 color-purple" >
+              <h4 className="mx-auto" style={{color:"purple"}}>
+              <IconButton icon={<Icon icon="list" />} circle size="lg" />
                   Liste des formations
               </h4>
                 
-            </div>
+          </div>
           <div className="container-fluid">
               <Row  data-aos="zoom-in-down">
                         <Col className="p-3 text-center"  data-aos="slide-right"  md={12} sm={12}>
@@ -173,85 +175,15 @@ export default function Formations({match}) {
 
               </Row>
 
-            {user.admin &&
-            <Row  data-aos="zoom-in-down">
-                        <Col data-aos-delay="500"  data-aos="zoom-up" className="p-3 text-center"  data-aos="slide-right"  md={8} sm={8}>
-                          <Panel  style={{color:"green"}} className="p-0 text-center"   shaded>
-                          <h4 className="mx-auto text-center mb-2" color="green"  circle >
-                          {formations?formations.length:0}
-                            
-                          </h4>
-                          <p className="pt-2 text-center" > Validées </p>
-                          </Panel>
-                       
-                        </Col>
-                        <Col  data-aos-delay="600" className="p-3"   data-aos="zoom-up"  md={8} sm={8}>
-                          <Panel style={{color:"orange"}} className="p-0 text-center"   shaded>
-                          <h4 className="mx-auto text-center mb-2" color="orange"  circle >
-                            0
-                          </h4>
-                          <p className="pt-2 text-center" > En attentes </p>
-                          </Panel>
-                           
-                        </Col>
-                        <Col  data-aos-delay="600" className="p-3"   data-aos="zoom-up"  md={8} sm={8}>
-                          <Panel style={{color:"red"}} className="p-0 text-center"   shaded>
-                          <h4 className="mx-auto text-center mb-2" color="green"  circle >
-                            0
-                          </h4>
-                          <p className="pt-2 text-center" > Annulées </p>
-                          </Panel>
-                        </Col>
-                       
-              </Row>
-            }
+           
             <div className="formations-table-container">
-              <Router>
-                <FormationNav/>
-                <div className="body-conf-table-container">
-                
-                
-                  {loading ? (
-                    <>
-                        <div className="mx-auto text-center mt-5" >
-                            <Loader
-                             className="m-auto text-center mt-5 " backdrop size="md" content="chargement..." vertical />
-                        </div> 
-                    </>
-                ):(
-                    <>
-
-                    {umptyData ? (
-                        <>
-
-                        <p>
-                            aucun entretien 
-                        </p>
-
-                        </>
-                    ):(
-                        <>
-                    <Panel shaded>
-                        
-                         
-                    <Route  exact path="/dashboard/formations" component={()=> <TablesValides formation={formations} handleActionNewFormation={handleActionNewFormation}  handleActionShowDetail={dataClickConf} dataM={rowClickData} openModal={openModal} /> }/>
-                   
-                    <Route path="/dashboard/formations/attentes" component={TablesAttentes}/>
-
-                    {/* <Route path="/dashboard/formations/annules" component={TablesAnnules}/> */}
-                    </Panel>
-                    </>
-                   
-                    )}
-                   
-                    </>
-                   
-                    )}
-                </div>
-              </Router>
-
             
-            <ModalShowConf rows={rows} rowClickData={rowClickData} showModal={showModal} closeModal= {()=>closeModal} handleCall={ ()=>handleCall} handleEdit={()=> handleEdit} />
+              <Panel shaded>
+                        
+                <TablesValides formation={formations} handleActionNewFormation={handleActionNewFormation}  handleActionShowDetail={dataClickConf} dataM={rowClickData} openModal={openModal} />
+              </Panel>
+            
+              <ModalShowConf rows={rows} rowClickData={rowClickData} showModal={showModal} closeModal= {()=>closeModal} handleCall={ ()=>handleCall} handleEdit={()=> handleEdit} />
 
             </div>
 
