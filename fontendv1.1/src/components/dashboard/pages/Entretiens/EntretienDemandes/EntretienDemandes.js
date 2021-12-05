@@ -118,12 +118,20 @@ export default function EntretienDemandes({match}) {
       <Container className="bg-white px-3" >
         <Content >
           <div data-aos="zoom-in-down" className="container-fluid">
-            <div className="mx-auto row py-4 px-3 mt-3">
-              
+            <div className="mx-auto row py-4 px-3">
+{/*               
               <div className="text-center mx-auto p-2">
                 <h4 className="h4 font-weight-bold">
                   Listes des demandes d'entretien B2B
                 </h4>
+              </div> */}
+
+               <div className="col-12 py-2 color-purple" >
+                <h4 className="mx-auto" style={{color:"purple"}}>
+                <IconButton icon={<Icon icon="list" />} circle size="lg" />
+                  Listes des demandes d'entretien B2B
+                </h4>
+                
               </div>
 
               <Row  >
@@ -149,7 +157,7 @@ export default function EntretienDemandes({match}) {
            
             <div className="conferences-table-container">
               <Router>
-                <EntretienNavBtoB link1="/dashboard/entretiens_demandes" link2="/dashboard/entretiens_demandes_valides" link3="/dashboard/entretiens_demandes_diponibles" />
+                <EntretienNavBtoB link1="/dashboard/entretiens_demandes" link2="/dashboard/entretiens_demandes_valides" />
                 <div className="body-conf-table-container">
                 
                
@@ -181,13 +189,13 @@ export default function EntretienDemandes({match}) {
                       
                       
                       /> }/>
-                        <Route path="/dashboard/entretiens_demandes_diponibles" component={()=> <TableEntretiensBtoB 
+                        {/* <Route path="/dashboard/entretiens_demandes_diponibles" component={()=> <TableEntretiensBtoB 
                        entretien={dataAttente}
                        handleActionShowDetail={dataClickEntretien} 
                       handleActionNewEntretien={handleActionNewEntretien}
                       
                       
-                      /> }/>
+                      /> }/> */}
 
                     </>
 

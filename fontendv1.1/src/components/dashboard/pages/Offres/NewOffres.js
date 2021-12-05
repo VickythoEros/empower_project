@@ -1,3 +1,4 @@
+import React,{useEffect,useState} from 'react'
 import {useHistory} from 'react-router-dom';
 import {ButtonToolbar,
     IconButton,
@@ -15,11 +16,13 @@ import {ButtonToolbar,
 
 } from 'rsuite';
 import 'rsuite/dist/styles/rsuite-default.css';
+import evenements from '../../../../api/evenement';
 
 import NewOffreForm from './NewOffreForm';
 
 import './NewOffres.css';
 export default function NewOffres(){
+    const [listEventData, setListEventData] = useState([])
     let history = useHistory();
     
     const redirectCreateOffre = () => {
@@ -28,6 +31,16 @@ export default function NewOffres(){
             
         });
     }
+
+    useEffect(() => {
+       evenements.getAllEvenement()
+        .then(res =>{
+            setListEventData(res.data.data)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    })
 
 
     return (
@@ -43,7 +56,7 @@ export default function NewOffres(){
                     </div>
                     <div className="body-new-offre mt-5">
 
-                        <NewOffreForm redirectCreateOffre={redirectCreateOffre} /> 
+                        <NewOffreForm listEventData={listEventData} redirectCreateOffre={redirectCreateOffre} /> 
                     </div>
 
             </Content>

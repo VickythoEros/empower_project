@@ -50,3 +50,9 @@
 .style-special-bg{
     background: #440544;
 }
+
+.styled-conference-before{
+    height: 1px;
+    background:purple;
+    width:30%;
+}

@@ -29,6 +29,7 @@ import AllConferenceOwn from './AllConferenceOwn';
 
 import AllConferenceOther from './AllConferenceOther';
 import { apiGetAllConference } from '../../../../redux/candidats/getConference/candGetConferenceAction';
+import { apiListEvent } from '../../../../redux/events/listEvent/listEventAction';
 
 const data= [
     
@@ -45,14 +46,18 @@ const data= [
   
   export default function AllConferences(props) {
   const allConferences = useSelector(state => state.CandidatGetConferences)
+  const eventsList = useSelector(state => state.listEvent).listEvent.data
   
   
   const dispatch = useDispatch();
 
   useEffect(()=>{
     dispatch(apiGetAllConference())
+    dispatch(apiListEvent())
+    
 
   },[dispatch])
+
 
  
     return (
@@ -61,6 +66,12 @@ const data= [
             <Container className="bg-white p-3 ">
               <Content className="" >
                 <div className="">
+                <div className="col-12 mx-auto ">
+                            <h4 className="font-weight-bold" style={{color:"purple"}}>
+                            <IconButton icon={<Icon icon="list" />} circle size="lg" />
+                                Liste des Conférences
+                            </h4>
+                        </div>
                   <Row  data-aos="zoom-in-down">
                               <Col className="p-3 text-center"   md={12} sm={12}>
                                   <InputGroup inside>
@@ -76,15 +87,10 @@ const data= [
                               </Col>
 
                     </Row>
-              <div className="col-12 py-2">
-                    
-                <h4 className="mx-auto" data-aos="zoom-in-down">
-                    Les conférences
-                </h4>
-              </div>
+            
             </div>
             <div className="allconferences-table-container">
-             
+            <div className="styled-conference-before"></div>
                 <div className="body-allconference" data-aos="zoom-in-down">
               
                     <AllConferenceOwn allConf= {allConferences.conference.data} />

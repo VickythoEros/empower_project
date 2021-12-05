@@ -1,19 +1,13 @@
 import React from 'react';
 import RichTextEditor, { stateToHTML } from "react-rte";
-import parse from 'html-react-parser';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux'
 import {ButtonToolbar,
-    IconButton,
-    Icon,
-    Loader,
-    Placeholder,
     Button,
     Form,
     FormGroup,
     FormControl,
     ControlLabel,
-    HelpBlock,
     Schema,
     SelectPicker,
     Row,
@@ -28,11 +22,10 @@ import 'rsuite/dist/styles/rsuite-default.css';
 import {apiOffreAdd} from '../../../../redux/entreprise/offres/offreAction'
 import configureStore from '../../../../redux/store';
 import { apiListEvent } from '../../../../redux/events/listEvent/listEventAction';
-import utilisateurs from '../../../../api/utilisateur';
 import { dataCountries } from '../../../../services/_dataCountries';
 import { alertError, alertSuccess } from '../../../others/NotificationInfog';
 
-const { StringType, NumberType } = Schema.Types;
+const { StringType } = Schema.Types;
 
 const model = Schema.Model({
     titre: StringType().isRequired('Champ Obligatoire.'),
@@ -100,21 +93,11 @@ class NewOffreForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
-    this.handleActionNewOffre = this.handleActionNewOffre.bind(this);
+    
     
   }
     
    
-  handleActionNewOffre = e => {
-    setTimeout(() => {
-      
-      this.setState(initialState)
-      this.props.history.push("/dashboard/new_offre");
-      
-      this.close()
-      
-    },2000)
-  };
   
   close() {
     this.setState({ show: false });
@@ -161,7 +144,6 @@ class NewOffreForm extends React.Component {
         this.open()
         this.setState({load: false})
         
-        this.handleActionNewOffre()
         this.props.redirectCreateOffre()
         
       }
@@ -224,7 +206,7 @@ class NewOffreForm extends React.Component {
               <Col className="" md={8} sm={24}>
                   <FormGroup>
                     <ControlLabel>Selectionner l'événement</ControlLabel>
-                  <SelectPicker size="lg" placement="auto" onChange={this.selectEventChange} maxHeight={200}  emplacement="auto" data={trierEvent(store.getState().listEvent.listEvent.data)} style={{width:300,zIndex:99}}  />
+                  <SelectPicker size="lg" placement="auto" onChange={this.selectEventChange} maxHeight={200}  emplacement="auto" data={trierEvent(this.props.listEventData)} style={{width:300,zIndex:99}}  />
                   </FormGroup>     
               </Col>
               <Col className="" md={8} sm={24}>

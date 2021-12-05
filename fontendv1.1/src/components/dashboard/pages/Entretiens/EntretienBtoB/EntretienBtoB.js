@@ -140,14 +140,15 @@ export default function EntretienBtoB({match}) {
       <Container className="bg-white px-3" >
         <Content >
           <div data-aos="zoom-in-down" className="container-fluid">
-            <div className="mx-auto row py-4 px-3 mt-3">
-              
-              <div className="text-center mx-auto p-2">
-                <h4 className="h4 font-weight-bold">
-                  Listes entretiens B2B
-                </h4>
-              </div>
-
+            <div className="mx-auto row py-4">
+             
+                <div className="col-12 py-2 color-purple" >
+                  <h4 className="mx-auto" style={{color:"purple"}}>
+                  <IconButton icon={<Icon icon="list" />} circle size="lg" />
+                    Listes entretiens B2B
+                  </h4>
+                </div>
+                
               <Row  >
                         <Col className="p-3 text-center"  data-aos="slide-right"  md={12} sm={12}>
                             <InputGroup inside>

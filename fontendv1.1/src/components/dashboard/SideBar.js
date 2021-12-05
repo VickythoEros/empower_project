@@ -151,8 +151,9 @@ export default function SideBar({ ...props }) {
                     
                     {userData && userData.type_compte ==="candidat" 
                     ? 
-                    (<> <Dropdown.Item eventKey="4-1" componentClass={Link} to="/dashboard/own_conferences_candidat">Mes  conferences</Dropdown.Item>
-                    <Dropdown.Item eventKey="4-3" componentClass={Link} to="/dashboard/allconferences">Toutes les conférences</Dropdown.Item>
+                    (<> 
+                    {/* <Dropdown.Item eventKey="4-4" componentClass={Link} to="/dashboard/own_conferences_candidat">Mes  conferences</Dropdown.Item> */}
+                    <Dropdown.Item eventKey="4-4" componentClass={Link} to="/dashboard/allconferences">Liste conférences</Dropdown.Item>
                      </>)
                     : ""
                     }
@@ -171,9 +172,10 @@ export default function SideBar({ ...props }) {
 
                     {userData && userData.type_compte ==="candidat" 
                     ? 
-                    (<> <Dropdown.Item eventKey="5-1" componentClass={Link} to="/dashboard/own_formations_candidat">Mes  formations</Dropdown.Item>
+                    (<> 
+                    {/* <Dropdown.Item eventKey="5-1" componentClass={Link} to="/dashboard/own_formations_candidat">Mes  formations</Dropdown.Item> */}
                     
-                    <Dropdown.Item eventKey="5-3"  componentClass={Link} to="/dashboard/new_formation">Toutes les formation</Dropdown.Item>
+                    <Dropdown.Item eventKey="5-3"  componentClass={Link} to="/dashboard/new_formation">Liste formations</Dropdown.Item>
                      </>)
                     : ""
                     }

@@ -48,6 +48,7 @@ export default function AllConferenceOwn(props) {
   const [rowsConferenceModal, setRowsConferenceModal] = useState(0);
   const [cardClickDataConferenceModal,setCardClickDataConferenceModal] = useState([])
 
+  
 
 const confData = props.allConf
   let history = useHistory();

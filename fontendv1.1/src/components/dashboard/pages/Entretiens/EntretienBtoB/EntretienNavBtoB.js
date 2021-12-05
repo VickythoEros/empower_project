@@ -25,11 +25,11 @@ const styles = {
           {props.text2 ? props.text2 :"Démandes en attentes "}
         
         </Nav.Item>
-        
+{/*         
         <Nav.Item componentClass={Link}  to={props.link3}  eventKey="disponibles">
           {props.text3 ? props.text3 :"Entretiens disponibles "}
         
-        </Nav.Item>
+        </Nav.Item> */}
       </Nav>
     );
   };

@@ -19,6 +19,7 @@ import 'rsuite/dist/styles/rsuite-default.css';
 
  import './DetailCandidat.css';
 import ProgrammeEntretien from './ProgrammeEntretien/ProgrammeEntretien';
+import CvViewer from './ShowCvCandidat';
 
 function ContainerCandidat(props){
   const [userData, setUserData] = useState(props.candidatClickData)
@@ -28,6 +29,20 @@ function ContainerCandidat(props){
   const [rowsMeetCandidat,setRowsMeetCandidat] = useState(0);
   const [candidatClickData,setCandidatClickData] = useState([]);
   
+  const [showCvViewerCandidat,setShowCvViewerCandidat] = useState(false);
+  const [rowsCvViewerCandidat,setRowsCvViewerCandidat] = useState(0);
+  
+  function openCvViewerCandidat() {
+    setShowCvViewerCandidat(true);
+    }
+
+    function closeCvViewerCandidat() {
+     setShowCvViewerCandidat(false);
+    }
+
+    function resetRowsCvViewerCandidat() {
+    setRowsCvViewerCandidat(0);
+    }
 
     function closeMeetCandidat() {
         setShowMeetCandidat(false);
@@ -55,6 +70,8 @@ function ContainerCandidat(props){
     return (
       <>
       <ProgrammeEntretien closeMeetCandidat={closeMeetCandidat} resetRowsMeetCandidat={resetRowsMeetCandidat} showMeetCandidat={showMeetCandidat} rowsMeetCandidat={rowsMeetCandidat} userData={userData} />
+  
+        <CvViewer showCvViewerCandidat={showCvViewerCandidat} resetRowsCvViewerCandidat={resetRowsCvViewerCandidat} closeCvViewerCandidat={closeCvViewerCandidat} userData={userData} />
 
         <div className="overflow-hidden"  >
 
@@ -128,7 +145,7 @@ function ContainerCandidat(props){
             <Col md={24}  className="mt-2" sm={24}>
 
                 <ButtonToolbar>
-                <Button className="float-md-left" appearance="ghost" >Voir mon CV</Button>
+                <Button className="float-md-left" onClick={() =>openCvViewerCandidat()}   appearance="ghost" >Voir mon CV</Button>
                 <Button className="float-md-right" onClick={() =>openMeetCandidat()} appearance="ghost" >Programmer un entretien</Button>
                 
                 </ButtonToolbar>

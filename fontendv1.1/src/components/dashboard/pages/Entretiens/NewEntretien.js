@@ -1,5 +1,5 @@
 import { useEffect,useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation ,useHistory} from "react-router-dom";
 import {useSelector, useDispatch,useStore} from 'react-redux'
 import {ButtonToolbar,
     IconButton,
@@ -115,6 +115,16 @@ export default function NewEntretien(){
   const [itemsConcerner, setItemsConcerner] = useState([])
   const [itemsCollaborateur, setItemsCollaborateur] = useState([])
   const [itemsEntreprise, setItemsEntreprise] = useState([])
+
+  // let history = useHistory();
+    
+  // const redirectCreateEntretien = () => {
+  //     history.push({
+  //         pathname: '/dashboard/ownoffres',
+          
+  //     });
+  // }
+
 
     
     const handleClicker = ()=> {

@@ -112,12 +112,14 @@ export default function EntretienCandidat({match}) {
       <Container className="bg-white px-3" >
         <Content >
           <div data-aos="zoom-in-down" className="container-fluid">
-            <div className="mx-auto row py-4 px-3 mt-3">
+            <div className="mx-auto row py-4">
               
-              <div className="text-center mx-auto p-2">
-                <h4 className="h4 font-weight-bold">
+        
+              <div className="col-12 py-2 color-purple" >
+                  <h4 className="mx-auto" style={{color:"purple"}}>
+                  <IconButton icon={<Icon icon="list" />} circle size="lg" />
                   Listes des entretiens avec candidats
-                </h4>
+                  </h4>
               </div>
 
               <Row  >
@@ -142,43 +144,13 @@ export default function EntretienCandidat({match}) {
            
            
             <div className="conferences-table-container">
-              <Router>
-                <EntretienNavCandidat link1="/dashboard/entretiens_candidats" link2="/dashboard/entretiens_candidats_pret" />
-                <div className="body-conf-table-container">
-                
-               
-                {loading ? (
-                    <>
-                        <div className="mx-auto text-center mt-5" >
-                            <Loader
-                             className="m-auto text-center mt-5 " backdrop size="md" content="chargement..." vertical />
-                        </div> 
-                    </>
-                ):(
-                      <>
-                
-              
-                    <Route exact path="/dashboard/entretiens_candidats" component={()=> <TableEntretiensBtoB 
+             
+              <TableEntretiensBtoB 
                       entretien={entretiensData}
                       handleActionShowDetail={dataClickEntretien} 
                      handleActionNewEntretien={handleActionNewEntretien}
                      
-                     /> }/>
-                     <Route path="/dashboard/entretiens_candidats_pret" component={()=> <TableEntretiensBtoB 
-                       entretien={entretiensData}
-                       handleActionShowDetail={dataClickEntretien} 
-                      handleActionNewEntretien={handleActionNewEntretien}
-                      
-                      
-                      /> }/>
-
-                    </>
-
-                    )}
-                </div>
-
-              </Router>
-
+                     />
             </div>
 
           </div>
