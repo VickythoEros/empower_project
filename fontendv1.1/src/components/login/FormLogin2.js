@@ -82,9 +82,12 @@ class FormLogin2 extends React.Component {
         this.setState({isLoggedIn:true})
       })
       .catch(res =>{
-        const error = res.response.data
-        openError(error.error? error.error :"Vérifier votre Email et Mot de passe.")
-        this.setState({showMessage:true,isLoggedIn:false,err : error.error})
+        if(res.response){
+
+          const error = res.response.data
+          openError(error.error? error.error :"Vérifier votre Email et Mot de passe.")
+          this.setState({showMessage:true,isLoggedIn:false,err : error.error})
+        }
         
       })
 
